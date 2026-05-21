@@ -1,9 +1,2 @@
-- název kategorie ignoruje zvětšení písma (win)
 - 125% shazuje QT a aplikace nenaběhne (win)
-- delete task button v edit task nedrží velikost fontu
-- změnit tlačítko na rule z Add rule na Rule a celkově ho rozšířit dynamicky na velikost písma (nevejde se při 150)
 - možná všechna tlačítka? Současná velikost jako minimum?
-- prio - text se nevejde do tlačítka, nafukovat tlačítka nebo změnit text na třípísmenou zkratku
-- při update databáze došlo k požrání subtasků
-- červený due má být na začátku seznamu
-- about font size
