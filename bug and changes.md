@@ -1,5 +1,5 @@
-- název kategorie ignoruje zvětšení písma
-- 125% shazuje QT a aplikace nenaběhne
+- název kategorie ignoruje zvětšení písma (win)
+- 125% shazuje QT a aplikace nenaběhne (win)
 - delete task button v edit task nedrží velikost fontu
 - změnit tlačítko na rule z Add rule na Rule a celkově ho rozšířit dynamicky na velikost písma (nevejde se při 150)
 - možná všechna tlačítka? Současná velikost jako minimum?
