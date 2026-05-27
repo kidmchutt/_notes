@@ -14,17 +14,19 @@ There will be database with the tests, different for each test project. Database
 - User will create or open project for the application to test.
 - User will define the screens tested app (or pages for webpage) is using by identifiying all the elements to test - links, titles, buttons, inputs, etc.
 	- this might be done manually in the app 
-	- or uploaded using toml/json/xml file with data (see [pre-defined objects](#pre-defined_objects))
+		- adding either screen description or
+		- adding CLI commands list with possible options and information if they are mandatory 
+	- or uploaded using toml/json/xml file with data (see [pre-defined objects](#pre_defined_objects))
 	- this should contain default state of the elements, possible error messages and it's behavior
-- User will link active elements (buttons, links, checkboxes, etc.) to behavior - if the clicking will open new window/page, change something on the page based on the values on the page and/or input test data.
+- (GUI) User will link active elements (buttons, links, checkboxes, etc.) to behavior - if the clicking will open new window/page, change something on the page based on the values on the page and/or input test data.
 - User will define test data or test data ranges. Simple app with form to fill, let's say name, surname, age, address - this might be test data, but they might need to be linked to some database or sets to be used semi-randomly.
 	- this might be done manually in the app 
 	- or uploaded using toml/json/xml file with data
 	- there might be more than one set of the test data for the tests	
 - Then the app will detect all the passthroughs to test all the elements on all connected pages, all the workflows and generate set of test scenarios - both happy day (Test to Success) and failing (Test to Fail) to test error messages and fails.
 - Test set will be saved then in a database, versioned and updated if necessary.
-- User can set priorities for each test.
-- This test set will be then exportable - as a xls file for manual testing (basic) or as a data set to be uploaded to some app for test runs (Spira Test, Testrail, etc.), which can be defined manually.
+	- User can set priorities for each test.
+	- This test set will be then exportable - as a xls file for manual testing (basic) or as a data set to be uploaded to some app for test runs (Spira Test, Testrail, etc.), which can be defined manually.
 
 In some later version, we will add test runs management and test run protocols export.
 
@@ -46,7 +48,7 @@ In some later version, we will add test runs management and test run protocols e
 
 ## Page model objects
 
-### Pre-defined objects {#pre-defined_objects}
+### Pre-defined objects {#pre_defined_objects}
 
 All the objects used in the tested project are saved in the proper elements.toml file. Here are some pre-defined objects, user can add more objects to the file if necessary.
 All the "element_" variables are mandatory, these are used for element recognition. Other values are not mandatory and they will be used as valued for testing. elements.toml file is used once when the test project is being set, other elements or test values for the elements will be set while the program runs only. This should help with project database integrity.
@@ -121,7 +123,7 @@ Pages are then defined by list of elements and subpages and behavior of the elem
 	- [Pages list](#window_list_page)
 - About
 	- About the application
-	- settings
+	- Settings
 
 ### Dialogs
 Not all dialogs are described here, only those which are not simple self-explanatory.
@@ -218,7 +220,7 @@ Clicking on value in column Page_name will open dialog New Element {#window_page
 
 Page model description is based on the GUI representation of the testes application, defines "pages" or "screens" of the application, describes what user see and what can they work with. It uses pre-defined set of objects, like button, input, checkbox, combobox, list, etc. The basic set is pre-defined in the application, it can be expanded - both by new elements and the values elements are using.
 
-For examples, see [pre-defined objects](#pre-defined_objects).
+For examples, see [pre-defined objects](#pre_defined_objects).
 
 ## Notes
 - use the [database memory](https://github.com/radimsem/remindb) for AI agent
