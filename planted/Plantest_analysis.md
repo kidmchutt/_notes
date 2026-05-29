@@ -2,15 +2,31 @@
 
 ## High-level Usage description
 
-Graphical application for test planning. All active elements should be described in the application, based on the [page model](#page_model_desc), displayed in the GUI in the style of a mind map/dev diagram, which could then be used as mapping model through all the application tested to ensure all the usage scenarios are passed through and all the validations and elements states are correct.
+Graphical application for test planning. All elements to test should be described in the application, based on the [page model](#page_model_desc), displayed in the GUI in the style of a mind map/dev diagram, which could then be used as mapping model through all the application tested to ensure all the usage scenarios are passed through and all the validations and elements states are correct.
 
 It should create all the passthroughs semi-automatically, final stage should be the map and test cases with all the settings defined in the preparation step and all the results for the tests itself will end as set of human readable information which can then be used as test protocol for the proper app version.
 
 The application itself will be developed in the python language, using FOSS tools, it will be multi-platform (Linux, Windows) and it will support multiple languages (English and Czech in the first release) using language file in human-readable format or depending on the used technology (if Qt will be used).
 
-There will be database with the tests, different for each test project. Database and the results should be exportable.
+There will be database with the used elements, tests and results, different for each test project. Test cases and the results will be exportable to json, xml and markdown format. 
 
-## User workflow
+In the future versions, test cases will be importable back, used as backup
+
+## User workflows
+
+### CLI Applications or services call
+- User will create or open project for the application to test.
+- User will create element descripting basic CLI/Service call (Application to Test)
+	- ex. name of the CLI application used for testing defining its name and link - name ```testCLI```, link with full address ```.\testCLI.exe```
+- User will create elements with the calls to test list and the expected result in the command line/bash. This can use test data variables which will be defined as well in their specific element (Test Data)
+	- ex. for the ```.\testCLI.exe help``` parameter the element will contain simple ```help``` and the expected result either in text description or ready to be automated - so the concrete return value.
+	- ex. for the ```.\testCLI.exe login --user $usr1 --password $usr1_pwd``` both of the variables will needs to be defined in the (Test Data) part of the tests.
+	- ex. for more complex parameters, parameter can be defined beforehand and user will define in test cases which parameter should be called. Parameters can have set mandatory flag.
+- User will create element with the test data used in the tests
+	- it could be basic list containing name and value used in the previous step example - ex. ```$usr1 = 'Test user 1'``` and ```$usr1_pwd = 'passphrase'```
+	- or complex test data list combining simple approach and hierarchical  data, which will be then called by both their subset name and variable name - ex. ```$login.$usr```. For better understanding, not necessary better readibility, simple values could be called as ```$default.$usr1``` of the variable is not part of the hierarchy. For the sake of this functionality ```$default``` word is reserved.
+
+### Applications with GUI
 - User will create or open project for the application to test.
 - User will define the screens tested app (or pages for webpage) is using by identifiying all the elements to test - links, titles, buttons, inputs, etc.
 	- this might be done manually in the app 
